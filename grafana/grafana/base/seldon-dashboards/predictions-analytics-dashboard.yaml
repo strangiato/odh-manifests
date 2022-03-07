@@ -1,0 +1,10 @@
+apiVersion: integreatly.org/v1alpha1
+kind: GrafanaDashboard
+metadata:
+  name: odh-seldon-predictions-analytics
+  labels:
+    app: grafana
+spec:
+  configMapRef:
+    name: seldon-predictions-analytics-dashboard
+    key: predictions-analytics-dashboard.json
