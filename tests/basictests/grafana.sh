@@ -28,6 +28,7 @@ function test_grafana() {
     os::cmd::expect_success_and_text "echo ${#runningpods[@]}" "1"
     os::cmd::try_until_text "oc get grafanadashboard" "odh-kafka" $odhdefaulttimeout $odhdefaultinterval
     os::cmd::try_until_text "oc get grafanadatasource" "odh-datasource" $odhdefaulttimeout $odhdefaultinterval
+    os::cmd::try_until_text "oc get grafanadatasource" "odh-seldon-predictions-analytics" $odhdefaulttimeout $odhdefaultinterval
 }
 
 test_grafana
