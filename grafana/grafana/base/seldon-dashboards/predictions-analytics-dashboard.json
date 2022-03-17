@@ -228,7 +228,7 @@
         "tableColumn": "",
         "targets": [
           {
-            "expr": "sum(rate(seldon_api_executor_server_requests_seconds_count{status!~\"5.*\"}[1m])) / sum(rate(seldon_api_executor_server_requests_seconds_count[1m]))",
+            "expr": "sum(rate(seldon_api_executor_server_requests_seconds_count{code!~\"5.*\"}[1m])) / sum(rate(seldon_api_executor_server_requests_seconds_count[1m]))",
             "format": "time_series",
             "intervalFactor": 2,
             "refId": "A",
@@ -315,7 +315,7 @@
         "tableColumn": "",
         "targets": [
           {
-            "expr": "sum(irate(seldon_api_executor_server_requests_seconds_count{status=~\"4.*\"}[1m])) ",
+            "expr": "sum(irate(seldon_api_executor_server_requests_seconds_count{code=~\"4.*\"}[1m])) ",
             "format": "time_series",
             "intervalFactor": 2,
             "refId": "A",
@@ -402,7 +402,7 @@
         "tableColumn": "",
         "targets": [
           {
-            "expr": "sum(irate(seldon_api_executor_server_requests_seconds_count{status=~\"5.*\"}[1m])) ",
+            "expr": "sum(irate(seldon_api_executor_server_requests_seconds_count{code=~\"5.*\"}[1m])) ",
             "format": "time_series",
             "hide": false,
             "intervalFactor": 2,
@@ -592,7 +592,7 @@
         "tableColumn": "",
         "targets": [
           {
-            "expr": "sum(rate(seldon_api_executor_client_requests_seconds_count{deployment_name=~\"$deployment\",status!~\"5.*\"}[1m])) / sum(rate(seldon_api_executor_client_requests_seconds_count{deployment_name=~\"$deployment\"}[1m]))",
+            "expr": "sum(rate(seldon_api_executor_client_requests_seconds_count{deployment_name=~\"$deployment\",code!~\"5.*\"}[1m])) / sum(rate(seldon_api_executor_client_requests_seconds_count{deployment_name=~\"$deployment\"}[1m]))",
             "format": "time_series",
             "intervalFactor": 2,
             "refId": "A",
@@ -679,7 +679,7 @@
         "tableColumn": "",
         "targets": [
           {
-            "expr": "sum(irate(seldon_api_executor_client_requests_seconds_count{deployment_name=~\"$deployment\",status=~\"4.*\"}[1m]))",
+            "expr": "sum(irate(seldon_api_executor_client_requests_seconds_count{deployment_name=~\"$deployment\",code=~\"4.*\"}[1m]))",
             "format": "time_series",
             "intervalFactor": 2,
             "refId": "A",
@@ -766,7 +766,7 @@
         "tableColumn": "",
         "targets": [
           {
-            "expr": "sum(irate(seldon_api_executor_client_requests_seconds_count{deployment_name=~\"$deployment\",status=~\"5.*\"}[1m]))",
+            "expr": "sum(irate(seldon_api_executor_client_requests_seconds_count{deployment_name=~\"$deployment\",code=~\"5.*\"}[1m]))",
             "format": "time_series",
             "hide": false,
             "intervalFactor": 2,
