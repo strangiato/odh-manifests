@@ -32,6 +32,7 @@ resources:
 commonLabels:
   opendatahub.io/component: "true"
   component.opendatahub.io/name: jupyterhub
+  app.kubernetes.io/part-of: jupyterhub
 
 configMapGenerator:
 - name: parameters
