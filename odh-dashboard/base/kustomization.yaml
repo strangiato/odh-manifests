@@ -13,3 +13,29 @@ resources:
 - deployment.yaml
 - routes.yaml
 - service.yaml
+- groups-config.yaml
+- odh-dashboard-groups-configmap.yaml
+
+configMapGenerator:
+- name: parameters
+  envs: 
+    - params.env
+generatorOptions:
+  disableNameSuffixHash: true
+vars:
+- name: odh_dashboard_admin_groups
+  objref:
+    kind: ConfigMap
+    name: parameters
+    apiVersion: v1
+  fieldref:
+    fieldpath: data.odh_dashboard_admin_groups
+- name: odh_dashboard_allowed_groups
+  objref:
+    kind: ConfigMap
+    name: parameters
+    apiVersion: v1
+  fieldref:
+    fieldpath: data.odh_dashboard_allowed_groups
+configurations:
+- params.yaml

@@ -3,4 +3,4 @@ kind: ConfigMap
 metadata:
   name: groups-config
 data:
-  groups-config: $(jupyterhub_groups_config)
+  groups-config: odh-dashboard-groups

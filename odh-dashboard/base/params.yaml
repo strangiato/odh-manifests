@@ -1,0 +1,5 @@
+varReference:
+- path: data/admin_groups
+  kind: ConfigMap
+- path: data/allowed_groups
+  kind: ConfigMap

@@ -25,9 +25,57 @@ HTTP endpoint exposed by your S3 object storage solution which will be made avai
 
 Name of the storage class to be used for PVCs created by JupyterHub component. This requires `storage-class` **overlay** to be enabled as well to work.
 
-#### jupyterhub_groups_config
+#### jupyterhub_admin_groups
 
-A ConfigMap containing comma separated lists of groups which would be used as Admin and User groups for JupyterHub. The default ConfgiMap can be found [here](jupyterhub/base/jupyterhub-groups-configmap.yaml).
+A comma separated lists of groups which grants admin access for JupyterHub. The group defaults to `odh-admins`.  
+
+The `odh-admins` group does not exist by default but can be created by to grant admin rights:
+
+```yaml
+kind: Group
+apiVersion: user.openshift.io/v1
+metadata:
+  name: odh-admins
+users:
+  - user1
+  - user2
+```
+
+##### Examples
+
+This paramater can be updated to utilizing a different group by providing the paramater in the kfdef
+
+```yaml
+  - kustomizeConfig:
+      parameters:
+        - name: jupyterhub_admin_groups
+          value: <my-group>
+      repoRef:
+        name: manifests
+        path: jupyterhub/jupyterhub
+    name: jupyterhub
+```
+
+#### jupyterhub_allowed_groups
+
+A comma separated lists of groups which grants user access for JupyterHub. The group defaults to `system:authenticated`.  
+
+The `system:authenticated` group allows anyone with ability to log into the cluster the ability to access JupyterHub.
+
+##### Examples
+
+This paramater can be updated to utilizing a different group by providing the paramater in the kfdef
+
+```yaml
+  - kustomizeConfig:
+      parameters:
+        - name: jupyterhub_allowed_groups
+          value: <my-group>
+      repoRef:
+        name: manifests
+        path: jupyterhub/jupyterhub
+    name: jupyterhub
+```
 
 #### jupyterhub_secret
 
