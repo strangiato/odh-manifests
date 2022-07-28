@@ -117,12 +117,12 @@ spec:
         - name: JUPYTERHUB_ADMIN_GROUPS
           valueFrom:
             configMapKeyRef:
-              name: $(jupyterhub_groups_config)
+              name: jupyterhub-groups
               key: admin_groups
         - name: JUPYTERHUB_ALLOWED_GROUPS
           valueFrom:
             configMapKeyRef:
-              name: $(jupyterhub_groups_config)
+              name: jupyterhub-groups
               key: allowed_groups
         - name: JUPYTERHUB_CRYPT_KEY
           valueFrom:

@@ -3,7 +3,7 @@ kind: ConfigMap
 metadata:
   labels:
     app: jupyterhub
-  name: jupyterhub-default-groups-config
+  name: jupyterhub-groups
 data:
-  admin_groups: "odh-jupyterhub-admins"
-  allowed_groups: "system:authenticated"
+  admin_groups: $(jupyterhub_admin_groups)
+  allowed_groups: $(jupyterhub_allowed_groups)

@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: odh-dashboard-groups
+data:
+  admin_groups: $(odh_dashboard_admin_groups)
+  allowed_groups: $(odh_dashboard_allowed_groups)

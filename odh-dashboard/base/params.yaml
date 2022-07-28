@@ -3,3 +3,7 @@ varReference:
   kind: ClusterRoleBinding
 - path: metadata/name
   kind: ClusterRoleBinding
+- path: data/admin_groups
+  kind: ConfigMap
+- path: data/allowed_groups
+  kind: ConfigMap

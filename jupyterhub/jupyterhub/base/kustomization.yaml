@@ -28,7 +28,6 @@ resources:
 - traefik-rolebinding.yaml
 - traefik-serviceaccount.yaml
 - traefik-service.yaml
-- groups-config.yaml
 
 commonLabels:
   opendatahub.io/component: "true"
@@ -63,13 +62,20 @@ vars:
     apiVersion: v1
   fieldref:
     fieldpath: data.s3_endpoint_url
-- name: jupyterhub_groups_config
+- name: jupyterhub_admin_groups
   objref:
     kind: ConfigMap
     name: parameters
     apiVersion: v1
   fieldref:
-    fieldpath: data.jupyterhub_groups_config
+    fieldpath: data.jupyterhub_admin_groups
+- name: jupyterhub_allowed_groups
+  objref:
+    kind: ConfigMap
+    name: parameters
+    apiVersion: v1
+  fieldref:
+    fieldpath: data.jupyterhub_allowed_groups
 - name: jupyterhub_secret
   objref:
     kind: ConfigMap
